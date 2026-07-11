@@ -2,67 +2,85 @@
 
 Collaborative infrastructure for the Zone01 Kisumu community.
 
-ZoneBridge is an open-source platform that extends the Zone01 Kisumu learning experience through peer collaboration, developer communities, mentorship, audit coordination, technical knowledge sharing, hackathons, bootcamps, and community-driven initiatives.
+ZoneBridge is an open-source platform that extends the Zone01 Kisumu learning experience through peer collaboration, developer communities, mentorship, audit coordination, knowledge sharing, hackathons, bootcamps, and open-source initiatives.
 
-The platform complements the official Zone01 learning platform by providing the collaborative infrastructure that surrounds project-based education while preserving the values of peer learning and independent problem solving.
+Rather than replacing the official Zone01 platform, ZoneBridge complements it by providing the collaborative infrastructure that surrounds project-based education while preserving the principles of peer learning and independent problem solving.
 
 ---
 
 ## Why ZoneBridge?
 
-ZoneBridge provides a shared space where knowledge can be organized, discovered, and reused by the community.
+The Zone01 experience is built around projects, peer learning, and collaboration. Every project produces valuable technical knowledge, audit experiences, implementation decisions, and lessons learned. Much of this knowledge becomes fragmented across repositories, messaging platforms, and personal notes, making it difficult for future apprentices to benefit from previous work.
 
-Instead of replacing the official platform, ZoneBridge focuses on strengthening the collaborative experience around it.
+ZoneBridge exists to strengthen the collaborative side of the Zone01 ecosystem by making knowledge easier to discover, communities easier to build, and collaboration easier to sustain.
 
 ---
 
-## What You'll Find
+## Platform
 
 ZoneBridge brings together the different aspects of the Zone01 Kisumu community into a single platform.
 
 ### Communities
 
-Technology-focused spaces where apprentices collaborate around topics such as Go, JavaScript, Docker, Linux, DevOps, Cybersecurity, Artificial Intelligence, Blockchain, and other technologies taught throughout the curriculum.
+Technology-focused communities where apprentices can collaborate around programming languages, frameworks, infrastructure, cybersecurity, artificial intelligence, blockchain, open source, and other technical interests.
 
-### Knowledge
+Communities provide discussion spaces, shared resources, announcements, and collaborative learning opportunities.
 
-Community articles, implementation guides, project write-ups, technical discussions, and reusable learning resources contributed by apprentices.
+---
+
+### Knowledge Hub
+
+A central place where apprentices can publish technical articles, project write-ups, implementation notes, debugging experiences, and learning resources that remain available to the community.
+
+Knowledge should continue benefiting future apprentices long after individual projects have been completed.
+
+---
 
 ### Mentorship
 
-Peer mentorship that helps apprentices discover experienced community members, request guidance, and collaborate through technical discussions and pair programming.
+A structured environment for peer mentorship that enables apprentices to request guidance, discover experienced community members, collaborate through pair programming, and support one another throughout their learning journey.
+
+---
 
 ### Audits
 
-A community-driven workflow that simplifies audit discovery, audit availability, notifications, and collaboration while remaining compatible with the official Zone01 evaluation process.
+Community-driven audit coordination that simplifies finding auditors, managing availability, requesting audits, and organizing peer evaluations while remaining complementary to the official Zone01 evaluation workflow.
 
-### Events
+---
 
-Support for bootcamps, workshops, hackathons, technical talks, community meetups, and other collaborative learning activities.
+### Bootcamps
+
+Dedicated collaborative spaces for technical bootcamps, workshops, and intensive learning programs where participants can access shared resources, communicate with mentors, and collaborate throughout the program.
+
+---
+
+### Hackathons
+
+Support for community hackathons through team formation, announcements, project collaboration, technical discussions, mentor support, and project showcasing.
+
+---
 
 ### Open Source
 
-A shared environment where apprentices can discover repositories, contribute to community projects, collaborate on software, and grow through open-source development.
+A collaborative environment where apprentices can discover repositories, contribute to community projects, participate in open-source initiatives, and build experience through real-world software development.
 
 ---
 
 ## Engineering Principles
 
-Every architectural decision within ZoneBridge is guided by a small number of engineering principles.
+Every engineering decision within ZoneBridge is guided by a common set of principles.
 
-- Community before features.
+- Community before complexity.
 - Knowledge should remain discoverable.
-- Secure by design.
-- Production-ready architecture.
-- Modular software.
-- Maintainable systems.
+- Security by design.
+- Modular architecture.
+- Production-ready engineering.
+- Performance through simplicity.
 - Open collaboration.
 
 ---
 
-## Technology
-
-ZoneBridge is built using modern open-source technologies.
+## Technology Stack
 
 | Layer | Technology |
 |--------|------------|
@@ -77,38 +95,51 @@ ZoneBridge is built using modern open-source technologies.
 
 ---
 
+## Repository
+
+```
+zonebridge/
+
+├── apps/
+├── docs/
+├── packages/
+├── deployments/
+├── scripts/
+├── .github/
+│
+├── README.md
+├── LICENSE
+├── CONTRIBUTING.md
+├── CODE_OF_CONDUCT.md
+├── SECURITY.md
+└── CHANGELOG.md
+```
+
+The repository is organized around a documentation-first engineering approach, ensuring that architectural decisions remain intentional, maintainable, and easy to understand as the project evolves.
+
+---
+
 ## Documentation
 
-Project documentation is organized into dedicated engineering specifications.
+The repository includes documentation covering the project, contribution process, security practices, and software architecture.
 
-- Product Vision
-- System Architecture
-- Domain Model
-- Database Design
-- API Specification
-- Deployment Architecture
-- Development Standards
-- Contributor Guide
+- [Contributing Guide](CONTRIBUTING.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Security Policy](SECURITY.md)
+- [Changelog](CHANGELOG.md)
+- [MIT License](LICENSE)
 
-The documentation is intended to provide a complete understanding of the platform for contributors, maintainers, and community members.
+Additional technical documentation is available under the `docs/` directory.
 
 ---
 
 ## Contributing
 
-ZoneBridge is developed openly by members of the Zone01 Kisumu community.
+ZoneBridge is an open-source project built by and for the Zone01 Kisumu community.
 
-Whether you are improving documentation, reporting issues, contributing code, reviewing pull requests, or proposing ideas, every contribution helps strengthen the platform for the community.
+Whether you're improving documentation, fixing bugs, proposing ideas, reviewing pull requests, or building new functionality, your contributions help strengthen the platform for everyone.
 
-Please read the project's contribution guidelines before opening an issue or submitting a pull request.
-
----
-
-## Community
-
-ZoneBridge exists to strengthen collaboration across the Zone01 Kisumu ecosystem.
-
-If you are an apprentice, mentor, alumnus, or contributor interested in improving the learning experience, we welcome your participation.
+Please read the Contributing Guide before submitting issues or pull requests.
 
 ---
 
@@ -116,4 +147,4 @@ If you are an apprentice, mentor, alumnus, or contributor interested in improvin
 
 ZoneBridge is released under the MIT License.
 
-See the LICENSE file for details.
+See the [LICENSE](LICENSE) file for details.
