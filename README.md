@@ -185,8 +185,8 @@ Additional documentation is available throughout the repository.
 
 | Document | Description |
 |-----------|-------------|
-| [Platform](docs/platform/README.md) | Platform vision and design |
-| [Architecture](docs/architecture/README.md) | System architecture and engineering decisions |
+| [Platform](docs/platform/platform-overview.md) | Platform vision and design |
+| [Architecture](docs/architecture/system-architecture.md) | System architecture and engineering decisions |
 | [Backend](docs/backend/README.md) | Backend implementation |
 | [Frontend](docs/frontend/README.md) | Frontend architecture |
 | [Database](docs/database/README.md) | Database design |
