@@ -1,0 +1,25 @@
+# ============================================================================
+# ZoneBridge Platform
+# Code Owners
+#
+# This file defines the default reviewers for the repository.
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+# ============================================================================
+
+# Default ownership
+* @philaturo
+
+# Documentation
+/docs/ @philaturo
+
+# Backend
+/backend/ @philaturo
+
+# Frontend
+/frontend/ @philaturo
+
+# Deployment
+/deployments/ @philaturo
+
+# GitHub Workflows
+/.github/ @philaturo
