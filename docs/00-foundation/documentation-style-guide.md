@@ -197,3 +197,88 @@ Always specify the language.
 func main() {
 
 }
+`````
+
+Avoid generic code blocks whenever possible.
+
+---
+
+## Diagrams
+
+Architecture diagrams should use Mermaid.
+
+Example:
+
+````markdown
+```mermaid
+graph TD
+
+User --> Community
+
+Community --> Knowledge Hub
+
+Knowledge Hub --> Mentorship
+```
+````
+
+Mermaid diagrams are version controlled and render directly on GitHub.
+
+---
+
+## Tables
+
+Use simple Markdown tables.
+
+Example:
+
+| Layer    | Technology |
+| -------- | ---------- |
+| Backend  | Go         |
+| Database | PostgreSQL |
+
+Avoid complex formatting.
+
+---
+
+## Internal Links
+
+Use relative links.
+
+Example:
+
+```markdown
+[Architecture Overview](../02-architecture/architecture-overview.md)
+```
+
+Avoid absolute GitHub URLs.
+
+---
+
+## Document Ownership
+
+Documentation belongs to the project rather than individual contributors.
+
+Documents should not include personal author information.
+
+Repository history provides attribution.
+
+---
+
+## Review Checklist
+
+Before merging documentation, verify that:
+
+* The purpose is clearly stated.
+* The content is technically accurate.
+* Terminology is consistent.
+* Formatting follows this guide.
+* Internal links are valid.
+* Examples are up to date.
+
+---
+
+## Related Documents
+
+* README
+* CONTRIBUTING
+* Product Vision
