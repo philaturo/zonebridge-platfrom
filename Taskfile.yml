@@ -1,21 +1,27 @@
 version: "3"
 
+vars:
+  BACKEND_DIR: backend
+  FRONTEND_DIR: frontend
+  DOCKER_DIR: deployments/docker
+
 tasks:
+
   setup:
     desc: Install project dependencies
     cmds:
-      - cd frontend && npm install
-      - cd backend && go mod download
+      - cd {{.BACKEND_DIR}} && go mod download
+      - cd {{.FRONTEND_DIR}} && npm install
 
   backend:
-    desc: Run the backend server
-    dir: backend
+    desc: Run backend
+    dir: "{{.BACKEND_DIR}}"
     cmds:
       - go run ./cmd/zonebridge
 
   frontend:
-    desc: Run the frontend development server
-    dir: frontend
+    desc: Run frontend
+    dir: "{{.FRONTEND_DIR}}"
     cmds:
       - npm run dev
 
@@ -25,26 +31,36 @@ tasks:
       - backend
       - frontend
 
+  docker:
+    desc: Start development containers
+    cmds:
+      - docker compose -f {{.DOCKER_DIR}}/compose.yaml up -d
+
+  stop:
+    desc: Stop containers
+    cmds:
+      - docker compose -f {{.DOCKER_DIR}}/compose.yaml down
+
   test:
     desc: Run all tests
     cmds:
-      - cd backend && go test ./...
-      - cd frontend && npm test
+      - cd {{.BACKEND_DIR}} && go test ./...
+      - cd {{.FRONTEND_DIR}} && npm test
 
   lint:
     desc: Run all linters
     cmds:
-      - cd backend && golangci-lint run
-      - cd frontend && npm run lint
+      - cd {{.BACKEND_DIR}} && golangci-lint run
+      - cd {{.FRONTEND_DIR}} && npm run lint
 
   build:
     desc: Build backend and frontend
     cmds:
-      - cd backend && go build ./...
-      - cd frontend && npm run build
+      - cd {{.BACKEND_DIR}} && go build ./...
+      - cd {{.FRONTEND_DIR}} && npm run build
 
   clean:
-    desc: Remove build artifacts
+    desc: Remove generated artifacts
     cmds:
       - rm -rf backend/bin
       - rm -rf frontend/dist
