@@ -1,0 +1,23 @@
+services:
+
+  postgres:
+    image: postgres:17-alpine
+
+    container_name: zonebridge-postgres
+
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: zonebridge
+      POSTGRES_USER: zonebridge
+      POSTGRES_PASSWORD: zonebridge
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+
+  postgres-data:
