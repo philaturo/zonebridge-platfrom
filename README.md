@@ -10,8 +10,8 @@ Rather than replacing the official Zone01 platform, ZoneBridge complements it by
 
 ## Documentation
 
-[Architecture](docs/architecture/README.md) •
-[Platform](docs/platform/README.md) •
+[Architecture](docs/architecture/system-architecture.md) •
+[Platform](docs/platform/platform-overview.md) •
 [Contributing](CONTRIBUTING.md) •
 [Security](SECURITY.md) •
 [Changelog](CHANGELOG.md) •
