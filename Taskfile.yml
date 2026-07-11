@@ -1,0 +1,50 @@
+version: "3"
+
+tasks:
+  setup:
+    desc: Install project dependencies
+    cmds:
+      - cd frontend && npm install
+      - cd backend && go mod download
+
+  backend:
+    desc: Run the backend server
+    dir: backend
+    cmds:
+      - go run ./cmd/zonebridge
+
+  frontend:
+    desc: Run the frontend development server
+    dir: frontend
+    cmds:
+      - npm run dev
+
+  dev:
+    desc: Run backend and frontend
+    deps:
+      - backend
+      - frontend
+
+  test:
+    desc: Run all tests
+    cmds:
+      - cd backend && go test ./...
+      - cd frontend && npm test
+
+  lint:
+    desc: Run all linters
+    cmds:
+      - cd backend && golangci-lint run
+      - cd frontend && npm run lint
+
+  build:
+    desc: Build backend and frontend
+    cmds:
+      - cd backend && go build ./...
+      - cd frontend && npm run build
+
+  clean:
+    desc: Remove build artifacts
+    cmds:
+      - rm -rf backend/bin
+      - rm -rf frontend/dist
