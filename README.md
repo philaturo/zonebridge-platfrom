@@ -10,9 +10,7 @@ The platform complements the official Zone01 learning platform by providing the 
 
 ## Why ZoneBridge?
 
-The Zone01 experience produces thousands of hours of technical discussions, project solutions, audit experiences, and community knowledge. Much of that information becomes fragmented across repositories, messaging platforms, and personal notes.
-
-ZoneBridge provides a shared space where that knowledge can be organized, discovered, and reused by the community.
+ZoneBridge provides a shared space where knowledge can be organized, discovered, and reused by the community.
 
 Instead of replacing the official platform, ZoneBridge focuses on strengthening the collaborative experience around it.
 
