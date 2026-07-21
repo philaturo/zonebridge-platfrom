@@ -40,8 +40,11 @@ func generateRequestID() string {
 	return hex.EncodeToString(b)
 }
 
-// RealIP extracts the true client IP from X-Forwarded-For or X-Real-IP headers,
-// falling back to r.RemoteAddr, and injects it into the request context.
+// RealIP extracts the true client IP. 
+// Note: We implement this manually rather than using chi/middleware.RealIP 
+// to ensure the resolved IP is explicitly stored in our platform's unexported 
+// context key (realIPKey), guaranteeing downstream middleware and handlers 
+// retrieve it consistently without relying on Ch
 func RealIP(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		ip := r.Header.Get("X-Forwarded-For")
