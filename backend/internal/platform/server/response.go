@@ -7,22 +7,17 @@ import (
 	"net/http"
 )
 
-// JSONResponse is a standard envelope for successful JSON responses.
-type JSONResponse struct {
-	Data any `json:"data"`
-}
-
 // JSON encodes the provided data as JSON and writes it to the ResponseWriter.
-// It sets the Content-Type header and handles encoding errors gracefully.
-func JSON(w http.ResponseWriter, status int, data any) {
+// It sets the Content-Type header. If encoding fails, it logs the error using
+// the provided logger and attempts to send a 500 Internal Server Error.
+func JSON(w http.ResponseWriter, logger *slog.Logger, status int, data any) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(status)
 
-	if err := json.NewEncoder(w).Encode(JSONResponse{Data: data}); err != nil {
-		// If encoding fails after headers are written, we can only log it.
-		// We use slog.Default() here as a fallback, though in practice 
-		// this should be injected if possible. For now, it prevents silent failures.
-		slog.Error("failed to encode json response", "error", err)
+	if err := json.NewEncoder(w).Encode(data); err != nil {
+		logger.Error("failed to encode json response", "error", err)
+		// Attempt to send a generic error response since headers are already written
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
 }
 
