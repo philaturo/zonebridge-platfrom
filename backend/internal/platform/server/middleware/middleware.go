@@ -35,8 +35,7 @@ func RequestID(next http.Handler) http.Handler {
 func generateRequestID() string {
 	b := make([]byte, 16)
 	if _, err := rand.Read(b); err != nil {
-		// Backlog item: Replace with platform clock abstraction in future milestone
-		return time.Now().Format("20060102150405")
+		panic(fmt.Errorf("critical failure: cannot generate secure request ID: %w", err))
 	}
 	return hex.EncodeToString(b)
 }
@@ -62,12 +61,12 @@ func Logger(logger *slog.Logger) func(http.Handler) http.Handler {
 	return func(next http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			start := time.Now()
-			
+
 			// Wrap the ResponseWriter to capture the status code
 			ww := chimiddleware.NewWrapResponseWriter(w, r.ProtoMajor)
-			
+
 			next.ServeHTTP(ww, r)
-			
+
 			duration := time.Since(start)
 			reqID, _ := r.Context().Value(requestIDKey).(string)
 			realIP, _ := r.Context().Value(realIPKey).(string)
@@ -93,14 +92,14 @@ func Recoverer(logger *slog.Logger) func(http.Handler) http.Handler {
 			defer func() {
 				if err := recover(); err != nil {
 					reqID, _ := r.Context().Value(requestIDKey).(string)
-					
+
 					logger.Error("panic recovered",
 						"request_id", reqID,
 						"method", r.Method,
 						"path", r.URL.Path,
 						"panic_value", err,
 					)
-					
+
 					// Use standardized error response helper
 					platformserver.Error(w, logger, http.StatusInternalServerError, "Internal Server Error")
 				}
