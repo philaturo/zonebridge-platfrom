@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/philaturo/zonebridge-platform/internal/platform/clock"
-	"github.com/philaturo/zonebridge-platform/internal/platform/server"
+	"github.com/philaturo/zonebridge-platform/internal/platform/response"
 	"github.com/philaturo/zonebridge-platform/internal/platform/version"
 )
 
