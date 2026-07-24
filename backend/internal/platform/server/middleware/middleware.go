@@ -10,7 +10,7 @@ import (
 	"time"
 
 	chimiddleware "github.com/go-chi/chi/v5/middleware"
-	platformserver "github.com/philaturo/zonebridge-platform/internal/platform/server"
+	platformserver "github.com/philaturo/zonebridge-platform/internal/platform/response"
 )
 
 // ctxKey is an unexported type for context keys to prevent collisions.
@@ -44,7 +44,7 @@ func generateRequestID() string {
 // Note: We implement this manually rather than using chi/middleware.RealIP 
 // to ensure the resolved IP is explicitly stored in our platform's unexported 
 // context key (realIPKey), guaranteeing downstream middleware and handlers 
-// retrieve it consistently without relying on Ch
+// retrieve it consistently without relying on Chi's internal context keys.
 func RealIP(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		ip := r.Header.Get("X-Forwarded-For")
