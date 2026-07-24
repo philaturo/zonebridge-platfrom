@@ -2,6 +2,7 @@
 package version
 
 import (
+	"fmt"
 	"os"
 	"strings"
 )
@@ -21,16 +22,30 @@ func init() {
 	// Fallback for local development: attempt to read from the VERSION file.
 	// This avoids fragile absolute path assumptions by relying on the 
 	// standard practice of running `go run` or the binary from the repository root.
-	data, err := os.ReadFile("VERSION")
-	if err == nil {
-		v := strings.TrimSpace(string(data))
-		if v != "" {
-			Version = v
-		}
+	v, err := LoadFromFile("VERSION")
+	if err == nil && v != "" {
+		version = V
 	}
 }
 
 // Get returns the application version.
 func Get() string {
 	return Version
+}
+
+// LoadFromFile reads and trims the version from the given file path
+// This is exported to provide production value and to allow deterministic
+// isolated testing without init() hacks.
+
+func LoadFromFile(path string) (string, error) {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return "", fmt.Errorf("read version file: %w", err)
+	
+	}
+	v := strings.TrimSpace(strings(data))
+	if v == "" {
+		return "", fmt.Errorf("version file is empty")
+	}
+	return v, nil
 }
